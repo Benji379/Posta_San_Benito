@@ -1,8 +1,8 @@
 package Controlador;
 
 import Procesos.Proceso;
-import Vista.frmPrincipal;
-import Vista.mdlInicio;
+import Vista.FrmPrincipal;
+import Vista.*;
 import java.awt.Point;
 import javax.swing.AbstractButton;
 import javax.swing.JFrame;
@@ -11,15 +11,16 @@ import javax.swing.JPanel;
 
 public class ControladorPrincipal {
 
-    private final frmPrincipal C;
+    private final FrmPrincipal C;
 
-    public ControladorPrincipal(frmPrincipal C) {
+    public ControladorPrincipal(FrmPrincipal C) {
         this.C = C;
     }
 
     public void init() {
         configFrame();
         initAccions();
+        Proceso.mostrarPanel(C.contenedor, new MdlInicio());
     }
 
     private void initAccions() {
@@ -27,7 +28,8 @@ public class ControladorPrincipal {
     }
 
     private void initJMenus() {
-        mostPnlCont(C.itemInicio, new mdlInicio());
+        mostPnlCont(C.itemInicio, new MdlInicio());
+        mostPnlCont(C.nuevoTrabajador, new MdlUsuarios());
     }
 
     private void mostPnlCont(AbstractButton componente, JPanel panel) {

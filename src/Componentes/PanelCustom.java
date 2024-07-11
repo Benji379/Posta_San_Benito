@@ -22,7 +22,7 @@ import javax.swing.JPanel;
 public class PanelCustom extends JPanel {
 
     private int round = 10;
-    private Color shadowColor = new Color(170, 170, 170);
+    private Color shadowColor = new Color(0, 0, 0);
     private final Insets shadowSize = new Insets(2, 5, 8, 5);
     private BufferedImage imageShadow;
 

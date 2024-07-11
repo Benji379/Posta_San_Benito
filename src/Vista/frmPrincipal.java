@@ -2,11 +2,11 @@ package Vista;
 
 import Controlador.ControladorPrincipal;
 
-public class frmPrincipal extends javax.swing.JFrame {
+public class FrmPrincipal extends javax.swing.JFrame {
 
     private final ControladorPrincipal C;
 
-    public frmPrincipal() {
+    public FrmPrincipal() {
         initComponents();
         C = new ControladorPrincipal(this);
         C.init();
@@ -29,16 +29,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         menuPaciente = new javax.swing.JMenu();
         itemNuevoPaciente = new javax.swing.JMenuItem();
         mantPacientes = new javax.swing.JMenuItem();
-        menuDoctor = new javax.swing.JMenu();
-        itemNuevoMedico = new javax.swing.JMenuItem();
-        mantMedicos = new javax.swing.JMenuItem();
+        menuEmpleados = new javax.swing.JMenu();
+        nuevoTrabajador = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         menuEspecialidad = new javax.swing.JMenuItem();
         mantEspecialidades = new javax.swing.JMenuItem();
         menuHistoria = new javax.swing.JMenu();
-        itemHistoriaAtenciones = new javax.swing.JMenuItem();
-        itemHistoriaPaciente = new javax.swing.JMenuItem();
-        itemHistoriaMedico = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setSize(new java.awt.Dimension(1144, 646));
@@ -62,7 +59,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+            .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
         );
 
         modulos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -108,19 +105,19 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         modulos.add(menuPaciente);
 
-        menuDoctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/medico.png"))); // NOI18N
-        menuDoctor.setText("Medicos");
-        menuDoctor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        menuEmpleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/trabajadores.png"))); // NOI18N
+        menuEmpleados.setText("Trabajadores");
+        menuEmpleados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        itemNuevoMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar.png"))); // NOI18N
-        itemNuevoMedico.setText("Nuevo Medico");
-        menuDoctor.add(itemNuevoMedico);
+        nuevoTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar.png"))); // NOI18N
+        nuevoTrabajador.setText("Nuevo");
+        menuEmpleados.add(nuevoTrabajador);
 
-        mantMedicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento.png"))); // NOI18N
-        mantMedicos.setText("Mantenimiento");
-        menuDoctor.add(mantMedicos);
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento.png"))); // NOI18N
+        jMenuItem2.setText("Mantenimiento");
+        menuEmpleados.add(jMenuItem2);
 
-        modulos.add(menuDoctor);
+        modulos.add(menuEmpleados);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/especialidades.png"))); // NOI18N
         jMenu1.setText("Especialidades");
@@ -138,16 +135,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         menuHistoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/historia.png"))); // NOI18N
         menuHistoria.setText("Historia");
         menuHistoria.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        itemHistoriaAtenciones.setText("Atenciones");
-        menuHistoria.add(itemHistoriaAtenciones);
-
-        itemHistoriaPaciente.setText("Paciente");
-        menuHistoria.add(itemHistoriaPaciente);
-
-        itemHistoriaMedico.setText("Medico");
-        menuHistoria.add(itemHistoriaMedico);
-
         modulos.add(menuHistoria);
 
         setJMenuBar(modulos);
@@ -170,41 +157,25 @@ public class frmPrincipal extends javax.swing.JFrame {
         C.confirmarCierre();
     }//GEN-LAST:event_formWindowClosing
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc="Registro el LookAndFeld FlatLaf">
-        com.formdev.flatlaf.FlatLaf.registerCustomDefaultsSource("MODELO");
-        com.formdev.flatlaf.FlatDarculaLaf.setup();
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new frmPrincipal().setVisible(true);
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel contenedor;
     public javax.swing.JMenuItem itemCerrarSesion;
-    public javax.swing.JMenuItem itemHistoriaAtenciones;
-    public javax.swing.JMenuItem itemHistoriaMedico;
-    public javax.swing.JMenuItem itemHistoriaPaciente;
     public javax.swing.JMenuItem itemInicio;
     public javax.swing.JMenuItem itemNuevaCita;
-    public javax.swing.JMenuItem itemNuevoMedico;
     public javax.swing.JMenuItem itemNuevoPaciente;
     public javax.swing.JMenu jMenu1;
+    public javax.swing.JMenuItem jMenuItem2;
     public javax.swing.JMenuItem mantAtencion;
     public javax.swing.JMenuItem mantEspecialidades;
-    public javax.swing.JMenuItem mantMedicos;
     public javax.swing.JMenuItem mantPacientes;
     public javax.swing.JMenu menuAtencion;
     public javax.swing.JMenu menuClinica;
-    public javax.swing.JMenu menuDoctor;
+    public javax.swing.JMenu menuEmpleados;
     public javax.swing.JMenuItem menuEspecialidad;
     public javax.swing.JMenu menuHistoria;
     public javax.swing.JMenu menuPaciente;
     public javax.swing.JMenuBar modulos;
+    public javax.swing.JMenuItem nuevoTrabajador;
     public javax.swing.JPanel panel;
     public javax.swing.JScrollPane scroll;
     // End of variables declaration//GEN-END:variables
