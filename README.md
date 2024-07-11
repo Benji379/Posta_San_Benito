@@ -40,5 +40,5 @@ Para el diseño se usó un LookAndFeld llamado FlatLaf
       com.formdev.flatlaf.FlatDarculaLaf.setup();  
 ```
 # Login
-- Tenemos 2 inputs principales que son el *Usuario* y el *Password*
+Tenemos 2 inputs principales que son el *Usuario* y el *Password* <br>
 ![image](https://github.com/Benji379/Clinica_Ricardo_Palma/assets/108637204/dc8e8776-3623-4b7a-8c1f-24bca43e9929)
