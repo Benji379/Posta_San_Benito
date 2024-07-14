@@ -24,18 +24,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         itemInicio = new javax.swing.JMenuItem();
         itemCerrarSesion = new javax.swing.JMenuItem();
         menuAtencion = new javax.swing.JMenu();
-        itemNuevaCita = new javax.swing.JMenuItem();
+        itemNuevaAtencion = new javax.swing.JMenuItem();
         mantAtencion = new javax.swing.JMenuItem();
         menuPaciente = new javax.swing.JMenu();
         itemNuevoPaciente = new javax.swing.JMenuItem();
         mantPacientes = new javax.swing.JMenuItem();
         menuEmpleados = new javax.swing.JMenu();
         nuevoTrabajador = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        menuEspecialidad = new javax.swing.JMenuItem();
+        mantTrabajador = new javax.swing.JMenuItem();
+        menuEspecialidades = new javax.swing.JMenu();
+        itemNuevaEspecialidad = new javax.swing.JMenuItem();
         mantEspecialidades = new javax.swing.JMenuItem();
         menuHistoria = new javax.swing.JMenu();
+        itemDescargarHistoria = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setSize(new java.awt.Dimension(1144, 646));
@@ -46,6 +47,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
 
         panel.setBackground(new java.awt.Color(255, 255, 255));
+
+        //new Componentes.ScrollBarWin11UI().new ScrollPaneWin11()
 
         contenedor.setBackground(new java.awt.Color(255, 255, 255));
         contenedor.setLayout(new java.awt.CardLayout());
@@ -73,6 +76,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         itemCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/salir.png"))); // NOI18N
         itemCerrarSesion.setText("Cerrar sesion");
+        itemCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCerrarSesionActionPerformed(evt);
+            }
+        });
         menuClinica.add(itemCerrarSesion);
 
         modulos.add(menuClinica);
@@ -81,9 +89,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuAtencion.setText("Atencion");
         menuAtencion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        itemNuevaCita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar.png"))); // NOI18N
-        itemNuevaCita.setText("Nueva Cita");
-        menuAtencion.add(itemNuevaCita);
+        itemNuevaAtencion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar.png"))); // NOI18N
+        itemNuevaAtencion.setText("Nueva");
+        menuAtencion.add(itemNuevaAtencion);
 
         mantAtencion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento.png"))); // NOI18N
         mantAtencion.setText("Mantenimiento");
@@ -113,28 +121,33 @@ public class FrmPrincipal extends javax.swing.JFrame {
         nuevoTrabajador.setText("Nuevo");
         menuEmpleados.add(nuevoTrabajador);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento.png"))); // NOI18N
-        jMenuItem2.setText("Mantenimiento");
-        menuEmpleados.add(jMenuItem2);
+        mantTrabajador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento.png"))); // NOI18N
+        mantTrabajador.setText("Mantenimiento");
+        menuEmpleados.add(mantTrabajador);
 
         modulos.add(menuEmpleados);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/especialidades.png"))); // NOI18N
-        jMenu1.setText("Especialidades");
+        menuEspecialidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/especialidades.png"))); // NOI18N
+        menuEspecialidades.setText("Especialidades");
 
-        menuEspecialidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar.png"))); // NOI18N
-        menuEspecialidad.setText("Nueva Especialidad");
-        jMenu1.add(menuEspecialidad);
+        itemNuevaEspecialidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/agregar.png"))); // NOI18N
+        itemNuevaEspecialidad.setText("Nueva Especialidad");
+        menuEspecialidades.add(itemNuevaEspecialidad);
 
         mantEspecialidades.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/mantenimiento.png"))); // NOI18N
         mantEspecialidades.setText("Mantenimiento");
-        jMenu1.add(mantEspecialidades);
+        menuEspecialidades.add(mantEspecialidades);
 
-        modulos.add(jMenu1);
+        modulos.add(menuEspecialidades);
 
         menuHistoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/historia.png"))); // NOI18N
         menuHistoria.setText("Historia");
         menuHistoria.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        itemDescargarHistoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/descargar.png"))); // NOI18N
+        itemDescargarHistoria.setText("Descargar Historia Clinica");
+        menuHistoria.add(itemDescargarHistoria);
+
         modulos.add(menuHistoria);
 
         setJMenuBar(modulos);
@@ -157,21 +170,26 @@ public class FrmPrincipal extends javax.swing.JFrame {
         C.confirmarCierre();
     }//GEN-LAST:event_formWindowClosing
 
+    private void itemCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCerrarSesionActionPerformed
+        C.cerrarSesion();
+    }//GEN-LAST:event_itemCerrarSesionActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel contenedor;
     public javax.swing.JMenuItem itemCerrarSesion;
+    public javax.swing.JMenuItem itemDescargarHistoria;
     public javax.swing.JMenuItem itemInicio;
-    public javax.swing.JMenuItem itemNuevaCita;
+    public javax.swing.JMenuItem itemNuevaAtencion;
+    public javax.swing.JMenuItem itemNuevaEspecialidad;
     public javax.swing.JMenuItem itemNuevoPaciente;
-    public javax.swing.JMenu jMenu1;
-    public javax.swing.JMenuItem jMenuItem2;
     public javax.swing.JMenuItem mantAtencion;
     public javax.swing.JMenuItem mantEspecialidades;
     public javax.swing.JMenuItem mantPacientes;
+    public javax.swing.JMenuItem mantTrabajador;
     public javax.swing.JMenu menuAtencion;
     public javax.swing.JMenu menuClinica;
     public javax.swing.JMenu menuEmpleados;
-    public javax.swing.JMenuItem menuEspecialidad;
+    public javax.swing.JMenu menuEspecialidades;
     public javax.swing.JMenu menuHistoria;
     public javax.swing.JMenu menuPaciente;
     public javax.swing.JMenuBar modulos;

@@ -1,5 +1,6 @@
 package Controlador;
 
+import Procesos.ProcesoLogin;
 import Vista.FrmLogin;
 import Vista.FrmPrincipal;
 
@@ -17,11 +18,18 @@ public class ControladorLogin {
     }
 
     public void ingresar() {
-        FrmPrincipal abrir = new FrmPrincipal();
-        V.setVisible(false);
-        abrir.setVisible(true);
+        String usuario = V.txtUsuario.getText();
+        String password = V.txtPassword.getText();
+        boolean validar = ProcesoLogin.autenticar(usuario, password);
+        if (validar) {
+            FrmPrincipal abrir = new FrmPrincipal();
+            V.setVisible(false);
+            ProcesoLogin.abrirFrmPrincipal(abrir);
+        }
     }
-
+    
+    
+    
     private int i = 0;
     public void clickOjo() {
         i++;
@@ -33,4 +41,5 @@ public class ControladorLogin {
             V.txtPassword.setEchoChar((char) 0);
         }
     }
+
 }

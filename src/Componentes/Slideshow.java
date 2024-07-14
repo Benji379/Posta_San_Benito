@@ -11,7 +11,6 @@ import javax.swing.JComponent;
 import javax.swing.border.EmptyBorder;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -93,7 +92,7 @@ public class Slideshow extends JLayeredPane {
                 layout.setComponentConstraints(componentShow, "pos 0 0 100% 100%, width 100%");
             }
         };
-        animator = new Animator(1000, target);
+        animator = new Animator(500, target);
         animator.setResolution(0);
         animator.setAcceleration(0.5f);
         animator.setDeceleration(0.5f);
@@ -102,11 +101,8 @@ public class Slideshow extends JLayeredPane {
         setLayout(new MigLayout("fill, inset 0", "[fill, center]", "3[fill]3"));
         add(pagination, "pos 0.5al 1al n n");
         add(panel, "w 100%-6!");
-        timer = new Timer(3000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                next();
-            }
+        timer = new Timer(3000, (ActionEvent ae) -> {
+            next();
         });
     }
 
@@ -262,13 +258,10 @@ class Pagination extends JComponent {
         public Item(int index, EventPagination event) {
             setContentAreaFilled(false);
             setBorder(new EmptyBorder(5, 5, 5, 5));
-            setBackground(Color.WHITE);
+            setBackground(new Color(110, 110, 110));
             setCursor(new Cursor(Cursor.HAND_CURSOR));
-            addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent ae) {
-                    event.onClick(index);
-                }
+            addActionListener((ActionEvent ae) -> {
+                event.onClick(index);
             });
         }
 
@@ -283,7 +276,7 @@ class Pagination extends JComponent {
             g2.setColor(getBackground());
             g2.fillOval(0, 0, width, height);
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
-            g2.setColor(new Color(0, 170, 169));
+            g2.setColor(new Color(226, 68, 88));
             g2.fillOval(0, 0, width, height);
             g2.dispose();
         }

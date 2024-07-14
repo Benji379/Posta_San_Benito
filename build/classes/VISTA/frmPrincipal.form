@@ -32,6 +32,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cerrar sesion"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemCerrarSesionActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -46,12 +49,12 @@
             </Property>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="itemNuevaCita">
+            <MenuItem class="javax.swing.JMenuItem" name="itemNuevaAtencion">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Img/agregar.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nueva Cita"/>
+                <Property name="text" type="java.lang.String" value="Nueva"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mantAtencion">
@@ -112,7 +115,7 @@
                 <Property name="text" type="java.lang.String" value="Nuevo"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="mantTrabajador">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Img/mantenimiento.png"/>
@@ -122,7 +125,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="menuEspecialidades">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/IMG/especialidades.png"/>
@@ -130,7 +133,7 @@
             <Property name="text" type="java.lang.String" value="Especialidades"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="menuEspecialidad">
+            <MenuItem class="javax.swing.JMenuItem" name="itemNuevaEspecialidad">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Img/agregar.png"/>
@@ -158,6 +161,16 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="itemDescargarHistoria">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Img/descargar.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Descargar Historia Clinica"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
@@ -222,6 +235,9 @@
       </Layout>
       <SubComponents>
         <Container class="javax.swing.JScrollPane" name="scroll">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="//new Componentes.ScrollBarWin11UI().new ScrollPaneWin11()"/>
+          </AuxValues>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
