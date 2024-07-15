@@ -26,7 +26,7 @@ public class FrmLogin extends javax.swing.JFrame {
         labelOjito = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Clinica Ricardo Palma - Login");
+        setTitle("Posta San Benito - Login");
         setResizable(false);
 
         jlbTittle.setFont(new java.awt.Font("Segoe UI Black", 0, 30)); // NOI18N

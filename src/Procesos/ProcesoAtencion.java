@@ -48,19 +48,6 @@ public class ProcesoAtencion {
         }
     }
 
-    public static void rellenarComboMedicos(String especialidad, JComboBox comboMedicos) {
-        ArrayList<Usuario> listaUsuarios = new DataUsuario().getData();
-
-        comboMedicos.removeAllItems();
-        for (Usuario us : listaUsuarios) {
-            String cargoTemp = us.getCargo();
-            String especialidadTemp = us.getEspecialidad();
-            if (cargoTemp.equalsIgnoreCase("MEDICO") && (especialidadTemp.equalsIgnoreCase(especialidad) || especialidadTemp.equalsIgnoreCase("GENERAL"))) {
-                comboMedicos.addItem(us.getCodigo());
-            }
-        }
-    }
-
     public static String idActual() {
         int idActual = 0;
         try {

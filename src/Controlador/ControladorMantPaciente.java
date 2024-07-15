@@ -1,11 +1,12 @@
 package Controlador;
 
+import Busquedas.Busqueda;
 import Modelo.Paciente;
 import Persistencias.DataPaciente;
 import Procesos.Proceso;
 import Procesos.ProcesoPaciente;
 import Vista.MdlMantPaciente;
-import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class ControladorMantPaciente {
@@ -70,18 +71,22 @@ public class ControladorMantPaciente {
     public void buscar() {
         try {
             int opc = ProcesoPaciente.opcBuscar();
+            List<Paciente> listaPacientes = data.getData(); // Asegúrate de tener acceso a la lista
             switch (opc) {
                 case 0:
                     String dniBuscar = Proceso.input("Ingresa dni").toString();
                     System.out.println(dniBuscar);
-                    Paciente pa = data.getPaciente(dniBuscar);
+                    Paciente pa = Busqueda.busquedaBinariaPaciente(listaPacientes, dniBuscar, 0, listaPacientes.size() - 1);
                     Proceso.mensaje(pa.toString(), "pacienteIcon.png");
                     break;
                 case 1:
+                    String nombreBuscar = Proceso.input("Ingresa nombre a buscar").toString();
+                    Paciente p = Busqueda.busquedaSecuencialPaciente(listaPacientes, nombreBuscar, 0);
+                    Proceso.mensaje(p.toString(), "pacienteIcon.png");
                     break;
             }
         } catch (Exception e) {
-            Proceso.error("Dni Inválido");
+            Proceso.error("Usuario inválido");
             System.out.println("Error: " + e.getMessage());
         }
     }
@@ -125,7 +130,26 @@ public class ControladorMantPaciente {
 
     public void ordenarPor() {
         int co = V.comboOrdenar.getSelectedIndex();
-        Ordenamientos.Ordenarmientos.ordenarTabla(V.tabla, co, true);
-    }
 
+        switch (co) {
+            case 1:
+                Ordenamientos.AlgoritmosSort.burbuja(V.tabla, co);
+                break;
+            case 2:
+                Ordenamientos.AlgoritmosSort.insercion(V.tabla, co);
+                break;
+            case 3:
+                Ordenamientos.AlgoritmosSort.mergeSort(V.tabla, co);
+                break;
+            case 4:
+                Ordenamientos.AlgoritmosSort.seleccion(V.tabla, co);
+                break;
+            case 5:
+                Ordenamientos.AlgoritmosSort.shellSort(V.tabla, co);
+                break;
+            default:
+                Ordenamientos.OrdenamientoTabla.ordenarTabla(V.tabla, co, true);
+                break;
+        }
+    }
 }

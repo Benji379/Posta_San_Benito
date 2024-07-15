@@ -29,9 +29,6 @@ public class MdlNewUsuarios extends javax.swing.JPanel {
         jlbApellidoPaterno = new javax.swing.JLabel();
         txtApellidos = new Componentes.TextFieldSuggestion();
         pDown = new javax.swing.JPanel();
-        pEspecialidad = new javax.swing.JPanel();
-        jlbApellidoMaterno = new javax.swing.JLabel();
-        comboEspecialidad = new Componentes.ComboBoxSuggestion();
         btnRegistrar = new Componentes.Button();
         pCargo = new javax.swing.JPanel();
         jlbCargo = new javax.swing.JLabel();
@@ -149,36 +146,6 @@ public class MdlNewUsuarios extends javax.swing.JPanel {
 
         pDown.setBackground(new java.awt.Color(255, 255, 255));
 
-        pEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
-
-        jlbApellidoMaterno.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jlbApellidoMaterno.setText("Especialidad");
-
-        comboEspecialidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboEspecialidadActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pEspecialidadLayout = new javax.swing.GroupLayout(pEspecialidad);
-        pEspecialidad.setLayout(pEspecialidadLayout);
-        pEspecialidadLayout.setHorizontalGroup(
-            pEspecialidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEspecialidadLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pEspecialidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlbApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
-        );
-        pEspecialidadLayout.setVerticalGroup(
-            pEspecialidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEspecialidadLayout.createSequentialGroup()
-                .addComponent(jlbApellidoMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comboEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
         btnRegistrar.setText("Registrar");
         btnRegistrar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -192,21 +159,15 @@ public class MdlNewUsuarios extends javax.swing.JPanel {
         pDownLayout.setHorizontalGroup(
             pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pDownLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pEspecialidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(202, 202, 202)
                 .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pDownLayout.setVerticalGroup(
             pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDownLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pDownLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pEspecialidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
 
@@ -354,11 +315,11 @@ public class MdlNewUsuarios extends javax.swing.JPanel {
 
             },
             new String [] {
-                "N", "ID", "DNI", "Cargo", "Especialidad", "Fecha"
+                "N", "ID", "DNI", "Cargo", "Fecha"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -431,12 +392,8 @@ public class MdlNewUsuarios extends javax.swing.JPanel {
     }//GEN-LAST:event_txtPasswordKeyTyped
 
     private void comboCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCargoActionPerformed
-        C.carVisi();
+       
     }//GEN-LAST:event_comboCargoActionPerformed
-
-    private void comboEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEspecialidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboEspecialidadActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         C.registrar();
@@ -449,9 +406,7 @@ public class MdlNewUsuarios extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Componentes.Button btnRegistrar;
     public Componentes.ComboBoxSuggestion comboCargo;
-    public Componentes.ComboBoxSuggestion comboEspecialidad;
     public javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JLabel jlbApellidoMaterno;
     public javax.swing.JLabel jlbApellidoPaterno;
     public javax.swing.JLabel jlbCargo;
     public javax.swing.JLabel jlbDni;
@@ -464,7 +419,6 @@ public class MdlNewUsuarios extends javax.swing.JPanel {
     public javax.swing.JPanel pCargo;
     public javax.swing.JPanel pDni;
     public javax.swing.JPanel pDown;
-    public javax.swing.JPanel pEspecialidad;
     public javax.swing.JPanel pNombres;
     public javax.swing.JPanel pPassword;
     public javax.swing.JPanel pUsuario;

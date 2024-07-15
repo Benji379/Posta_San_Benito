@@ -213,7 +213,7 @@ public class MdlNewAtencion extends javax.swing.JPanel {
         pBoleta.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 20));
 
         jlbSubTittle.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jlbSubTittle.setText("Clinica Ricardo Palma");
+        jlbSubTittle.setText("Posta San Benito");
         pBoleta.add(jlbSubTittle);
 
         pCodConsulta.setPreferredSize(new java.awt.Dimension(277, 40));

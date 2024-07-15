@@ -17,8 +17,7 @@ public class MdlInicio extends javax.swing.JPanel {
     private void initComponents() {
 
         panelCustom1 = new Componentes.PanelCustom();
-        imagenLogoTipo = new Componentes.Imagen();
-        slideshow = new Componentes.Slideshow();
+        imagen1 = new Componentes.Imagen();
         jPanel1 = new javax.swing.JPanel();
         panelCustom2 = new Componentes.PanelCustom();
         txtCargo = new javax.swing.JLabel();
@@ -27,31 +26,30 @@ public class MdlInicio extends javax.swing.JPanel {
         panelCustom4 = new Componentes.PanelCustom();
         txtNombre = new javax.swing.JLabel();
         fotoPerfil = new Componentes.ImageAvatar();
+        imagen2 = new Componentes.Imagen();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         panelCustom1.setBackground(new java.awt.Color(255, 255, 255));
 
-        imagenLogoTipo.setImage(new javax.swing.ImageIcon(getClass().getResource("/Img/logotipo.png"))); // NOI18N
+        imagen1.setImage(new javax.swing.ImageIcon(getClass().getResource("/Img/logotipo.png"))); // NOI18N
 
         javax.swing.GroupLayout panelCustom1Layout = new javax.swing.GroupLayout(panelCustom1);
         panelCustom1.setLayout(panelCustom1Layout);
         panelCustom1Layout.setHorizontalGroup(
             panelCustom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCustom1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(imagenLogoTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(10, 10, 10))
+            .addGroup(panelCustom1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         panelCustom1Layout.setVerticalGroup(
             panelCustom1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCustom1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(imagenLogoTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                .addGap(10, 10, 10))
+                .addContainerGap()
+                .addComponent(imagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
-
-        slideshow.setColorPrincipal(new java.awt.Color(102, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -67,7 +65,7 @@ public class MdlInicio extends javax.swing.JPanel {
             panelCustom2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCustom2Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(txtCargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtCargo, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
         panelCustom2Layout.setVerticalGroup(
@@ -90,7 +88,7 @@ public class MdlInicio extends javax.swing.JPanel {
             panelCustom3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCustom3Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
         panelCustom3Layout.setVerticalGroup(
@@ -113,7 +111,7 @@ public class MdlInicio extends javax.swing.JPanel {
             panelCustom4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelCustom4Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
         panelCustom4Layout.setVerticalGroup(
@@ -155,26 +153,34 @@ public class MdlInicio extends javax.swing.JPanel {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
+        imagen2.setImage(new javax.swing.ImageIcon(getClass().getResource("/Img/banner4.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(slideshow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1059, Short.MAX_VALUE)
-                    .addComponent(panelCustom1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(40, 40, 40))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(imagen2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(15, 15, 15)
                 .addComponent(panelCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(imagen2, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(slideshow, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                .addGap(10, 10, 10)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
@@ -182,13 +188,13 @@ public class MdlInicio extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public Componentes.ImageAvatar fotoPerfil;
-    public Componentes.Imagen imagenLogoTipo;
+    public Componentes.Imagen imagen1;
+    public Componentes.Imagen imagen2;
     public javax.swing.JPanel jPanel1;
     public Componentes.PanelCustom panelCustom1;
     public Componentes.PanelCustom panelCustom2;
     public Componentes.PanelCustom panelCustom3;
     public Componentes.PanelCustom panelCustom4;
-    public Componentes.Slideshow slideshow;
     public javax.swing.JLabel txtCargo;
     public javax.swing.JLabel txtCodigo;
     public javax.swing.JLabel txtNombre;

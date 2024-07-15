@@ -12,10 +12,7 @@ import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
-import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Image;
@@ -44,12 +41,13 @@ public class HistoriaClinicaPDF {
         PdfFont font = PdfFontFactory.createFont("CenturyGothic.ttf", PdfEncodings.WINANSI, true);
 
         // Agregar la imagen del logo si es necesario
-        ImageData logoData = ImageDataFactory.create(direccionImagen);
-        Image logo = new Image(logoData);
-        logo.scaleToFit(imagenAncho, imagenAlto);
-        logo.setFixedPosition((PageSize.A4.getWidth() - imagenAncho) / 2, PageSize.A4.getHeight() - imagenAlto - 50);
-        logo.setOpacity(imagenTransparencia);
-        document.add(logo);
+        ImageData imageData = ImageDataFactory.create(direccionImagen);
+        float desplazamientoDerecha = 10000; // Ajusta este valor según la cantidad de desplazamiento que desees
+
+        Image image = new Image(imageData).scaleAbsolute(imagenAncho, imagenAlto)
+                .setFixedPosition(PageSize.A4.getWidth() / 2 - imagenAncho / 2 + desplazamientoDerecha, PageSize.A4.getHeight() / 2 - imagenAlto / 2)
+                .setOpacity(imagenTransparencia);  // Ajustar la opacidad de la imagen
+        document.add(image);
 
         // Título del documento
         Paragraph title = new Paragraph("HISTORIA CLINICA - " + paciente.getDni())
@@ -92,6 +90,15 @@ public class HistoriaClinicaPDF {
             float imagenAncho, float imagenAlto, float imagenTransparencia) throws Exception {
         PdfWriter writer = new PdfWriter(direccionDescarga);
         PdfDocument pdfDoc = new PdfDocument(writer);
+
+        // Agregar metadatos
+        PdfDocumentInfo info = pdfDoc.getDocumentInfo();
+        info.setTitle("Historia Clínica");
+        info.setAuthor(ProcesoLogin.USER.getCodigo());
+        info.setSubject("Historia Clínica - " + historiasPdf.get(0).getPaciente().getDni());
+        info.setKeywords("Historia Clínica, Pacientes, Posta San Benito");
+        info.setCreator("Posta San Benito");
+
         try (Document document = new Document(pdfDoc, PageSize.A4)) {
             document.setMargins(20, 20, 20, 20);
 

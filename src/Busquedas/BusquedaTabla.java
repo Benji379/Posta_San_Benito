@@ -53,7 +53,8 @@ public class BusquedaTabla {
         }
         return nuevoModelo;
     }
-     public static DefaultTableModel filtro_BusquedaPorFechas(DefaultTableModel modeloOriginal, String fechaInicio, String fechaFinal, int columnaFecha, HashMap<Integer, Object> filtros) throws ParseException {
+
+    public static DefaultTableModel filtro_BusquedaPorFechas(DefaultTableModel modeloOriginal, String fechaInicio, String fechaFinal, int columnaFecha, HashMap<Integer, Object> filtros) throws ParseException {
         ArrayList<ArrayList<Object>> datos = extraerDatos(modeloOriginal);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date inicio = sdf.parse(fechaInicio);
@@ -64,7 +65,7 @@ public class BusquedaTabla {
             Date fecha = sdf.parse((String) fila.get(columnaFecha));
             boolean cumpleFechas = !fecha.before(inicio) && !fecha.after(fin);
             boolean cumpleFiltros = true;
-            
+
             for (Integer columna : filtros.keySet()) {
                 if (!fila.get(columna).equals(filtros.get(columna))) {
                     cumpleFiltros = false;
@@ -79,5 +80,5 @@ public class BusquedaTabla {
 
         return crearModeloDesdeDatos(datosFiltrados, modeloOriginal);
     }
-    
+
 }

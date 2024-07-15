@@ -48,6 +48,7 @@ public class ControladorNewAtencion {
 
     private void consultarCombos() {
         ProcesoAtencion.rellenarCombo(V.comboPaciente, V.comboEspecialidad);
+        ProcesoAtencion.rellenarComboMedicos(V.comboMedico);
     }
 
     private void initCombos() {
@@ -60,8 +61,6 @@ public class ControladorNewAtencion {
             printResultado();
         });
         V.comboEspecialidad.addActionListener((java.awt.event.ActionEvent evt) -> {
-            String selectEspecialidad = V.comboEspecialidad.getSelectedItem().toString();
-            ProcesoAtencion.rellenarComboMedicos(selectEspecialidad, V.comboMedico);
             printResultado();
         });
         V.comboMedico.addActionListener((java.awt.event.ActionEvent evt) -> {

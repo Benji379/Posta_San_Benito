@@ -5,7 +5,7 @@ import Controlador.ControladorPrincipal;
 public class FrmPrincipal extends javax.swing.JFrame {
 
     private final ControladorPrincipal C;
-
+    
     public FrmPrincipal() {
         initComponents();
         C = new ControladorPrincipal(this);

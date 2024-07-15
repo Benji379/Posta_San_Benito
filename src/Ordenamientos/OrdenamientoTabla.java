@@ -4,7 +4,7 @@ import java.util.Arrays;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-public class Ordenarmientos {
+public class OrdenamientoTabla {
 
     public static void ordenarTabla(JTable tabla, int numColumna, boolean asc) {
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();

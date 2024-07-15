@@ -14,7 +14,7 @@ public class ControladorInicio {
     }
 
     public void init() {
-        C.slideshow.initSlideshow(ProcesoInicio.slides(5));
+//        C.slideshow.initSlideshow(ProcesoInicio.slides(1));
         String cargo = ProcesoLogin.USER.getCargo();
         C.txtCargo.setText(cargo);
         C.txtCodigo.setText(ProcesoLogin.USER.getCodigo());

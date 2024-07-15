@@ -3,7 +3,10 @@ package Procesos;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -134,12 +137,6 @@ public class Proceso {
         JOptionPane.showMessageDialog(null, mensaje, "Mensaje", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public static void main(String[] args) {
-        mensaje("Esto es un mensaje", "check.png");
-        Object dato = input("Ingresa dni");
-        System.out.println(dato);
-    }
-
     public static void vaciarTextFields(JTextField... txt) {
         for (JTextField t : txt) {
             t.setText("");
@@ -165,15 +162,29 @@ public class Proceso {
         return now.format(formatter);
     }
 
-    public static String evitarNull(Object dato){
-        if(dato == null){
+    public static String evitarNull(Object dato) {
+        if (dato == null) {
             return "";
-        }else{
+        } else {
             return dato.toString();
         }
     }
+
     public static String formatDate(Date date) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         return formatter.format(date);
+    }
+
+    public static void abrirArchivo(String filePath) {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                File file = new File(filePath);
+                Desktop.getDesktop().open(file);
+            } catch (IOException ex) {
+                Proceso.error("Error al abrir el archivo: " + ex.getMessage());
+            }
+        } else {
+            Proceso.error("No se puede abrir el archivo, la función de escritorio no es compatible.");
+        }
     }
 }

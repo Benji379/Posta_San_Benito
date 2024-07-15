@@ -49,7 +49,7 @@ public class TestPdf {
 
             // Llamar al método para generar el PDF
             String direccionDescarga = "GENERADO.pdf"; // Ajustar al path deseado
-            String direccionImagen = "logotipo.jpg"; // Ajustar al path de la imagen
+            String direccionImagen = "logotipo.png"; // Ajustar al path de la imagen
             DeviceRgb colorFondoEncabezados = new DeviceRgb(204, 229, 255); // Color azul claro
             DeviceRgb colorBordes = new DeviceRgb(0, 0, 0); // Color negro
 

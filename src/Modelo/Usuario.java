@@ -10,7 +10,6 @@ public class Usuario implements Serializable {
     private String dni;
     private String nombres;
     private String apellidos;
-    private String especialidad;
     private String cargo;
     private String password;
     private String fecha;
@@ -18,12 +17,11 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(String codigo, String dni, String nombres, String apellidos, String especialidad, String cargo, String password, String fecha) {
+    public Usuario(String codigo, String dni, String nombres, String apellidos, String cargo, String password, String fecha) {
         this.codigo = codigo;
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.especialidad = especialidad;
         this.cargo = cargo;
         this.password = password;
         this.fecha = fecha;
@@ -59,14 +57,6 @@ public class Usuario implements Serializable {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
-    }
-
-    public String getEspecialidad() {
-        return especialidad;
-    }
-
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
     }
 
     public String getCargo() {

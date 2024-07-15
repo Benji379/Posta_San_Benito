@@ -353,7 +353,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Clinica Ricardo Palma"/>
+            <Property name="text" type="java.lang.String" value="Posta San Benito"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="pCodConsulta">

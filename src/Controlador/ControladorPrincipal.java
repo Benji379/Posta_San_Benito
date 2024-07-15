@@ -7,7 +7,7 @@ import Vista.*;
 import javax.swing.JFrame;
 
 public class ControladorPrincipal {
-
+    
     private final FrmPrincipal V;
     private ProcesoPrincipal p;
 
@@ -33,7 +33,7 @@ public class ControladorPrincipal {
         p.mostPnlCont(V.itemNuevoPaciente, MdlNewPaciente.class);
         p.mostPnlCont(V.mantPacientes, MdlMantPaciente.class);
         p.mostPnlCont(V.mantAtencion, MdlMantAtencion.class);
-        p.mostPnlEmergent(V.itemDescargarHistoria, MdlHistoria.class, "Descargar historia clinica", 253, 280);
+        p.mostPnlEmergent(V.itemDescargarHistoria, MdlHistoria.class, "Descargar historia clinica", 310, 290);
         p.mostPnlEmergent(V.itemNuevaAtencion, MdlNewAtencion.class, "Atencion", 1090, 610);
         p.mostPnlEmergent(V.itemNuevaEspecialidad, MdlNewEspecialidad.class, "Nueva Especialidad", 385, 491);
         p.mostPnlEmergent(V.mantEspecialidades, MdlMantEspecialidad.class, "Mantenimiento Especialidad", 785, 605);
@@ -42,7 +42,7 @@ public class ControladorPrincipal {
     private void configFrame() {
         V.setLocationRelativeTo(null);
         V.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(getClass().getResource("/IMG/icono.png")));
-        V.setTitle("Clinica Ricardo Palma - " + ProcesoLogin.USER.getCargo());
+        V.setTitle("Posta San Benito - " + ProcesoLogin.USER.getCargo());
         V.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 

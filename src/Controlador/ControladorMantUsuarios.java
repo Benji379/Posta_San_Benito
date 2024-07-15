@@ -23,7 +23,6 @@ public class ControladorMantUsuarios {
     public void init() {
         limpiar();
         data = new DataUsuario();
-        carVisi();
     }
 
     public void limpiar() {
@@ -86,11 +85,7 @@ public class ControladorMantUsuarios {
         datos.put(4, V.txtApellidos.getText());
         String cargo = V.comboCargo.getSelectedItem().toString();
         datos.put(5, cargo);
-        String especialidad = V.comboEspecialidad.getSelectedItem().toString();
-        if (!especialidad.equalsIgnoreCase("TODOS")) {
-            datos.put(6, especialidad);
-        }
-        datos.put(7, V.txtFecha.getText());
+        datos.put(6, V.txtFecha.getText());
         return datos;
     }
 
@@ -101,14 +96,12 @@ public class ControladorMantUsuarios {
         String nombres = V.tabla.getValueAt(filaSeleccionada, 3).toString();
         String apellidos = V.tabla.getValueAt(filaSeleccionada, 4).toString();
         String cargo = V.tabla.getValueAt(filaSeleccionada, 5).toString();
-        String especialidad = V.tabla.getValueAt(filaSeleccionada, 6).toString();
-        String fecha = V.tabla.getValueAt(filaSeleccionada, 7).toString();
+        String fecha = V.tabla.getValueAt(filaSeleccionada, 6).toString();
         V.txtUsuario.setText(codigo);
         V.txtDni.setText(dni);
         V.txtNombres.setText(nombres);
         V.txtApellidos.setText(apellidos);
         V.comboCargo.setSelectedItem(cargo);
-        V.comboEspecialidad.setSelectedItem(especialidad);
         V.txtPassword.setText(data.getUsuario(codigo).getPassword());
         V.txtFecha.setText(fecha);
         V.dateChooser.setSelectedDate(Proceso.fecha(fecha));
@@ -119,34 +112,18 @@ public class ControladorMantUsuarios {
     private void consultar() {
         modelo = ProcesoUsuario.rellenarTablaMant(V.tabla);
         V.tabla.setModel(modelo);
-        V.comboEspecialidad.removeAllItems();
-        V.comboEspecialidad.addItem("TODOS");
-        ProcesoUsuario.rellenarComboEspecialidad(V.comboEspecialidad);
     }
 
-    public void carVisi() {
-        int nCargo = V.comboCargo.getSelectedIndex();
-        if (nCargo == 1) {
-            V.pEspecialidad.setVisible(true);
-        } else {
-            V.pEspecialidad.setVisible(false);
-        }
-    }
-
+  
     private Usuario obtenerDatos() {
         String dniUsuario = V.txtDni.getText();
         String nombres = Proceso.mayuscula(V.txtNombres.getText());
         String apellidos = Proceso.mayuscula(V.txtApellidos.getText());
         String password = V.txtPassword.getText();
         String cargo = V.comboCargo.getSelectedItem().toString();
-        Object selectEspecialidad = V.comboEspecialidad.getSelectedItem();
-        String especialidad = "";
-        if (selectEspecialidad != null) {
-            especialidad = cargo.equalsIgnoreCase("MEDICO") ? selectEspecialidad.toString() : "GENERAL";
-        }
         String fecha = Procesos.Proceso.FECHA_ACTUAL();
         String codigoUsuario = ProcesoUsuario.generarCodigo(dniUsuario, cargo);
-        Usuario us = new Usuario(codigoUsuario, dniUsuario, nombres, apellidos, especialidad, cargo, password, fecha);
+        Usuario us = new Usuario(codigoUsuario, dniUsuario, nombres, apellidos, cargo, password, fecha);
         return us;
     }
 }

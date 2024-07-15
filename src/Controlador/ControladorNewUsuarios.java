@@ -20,30 +20,16 @@ public class ControladorNewUsuarios {
         limpiar();
     }
 
-    public void carVisi() {
-        int nCargo = V.comboCargo.getSelectedIndex();
-        if (nCargo == 1) {
-            V.pEspecialidad.setVisible(true);
-        } else {
-            V.pEspecialidad.setVisible(false);
-        }
-        autoRellenarTxtCod();
-    }
-
     private Usuario obtenerDatos() {
         String dniUsuario = V.txtDni.getText();
         String nombres = Proceso.mayuscula(V.txtNombres.getText());
         String apellidos = Proceso.mayuscula(V.txtApellidos.getText());
         String password = V.txtPassword.getText();
         String cargo = V.comboCargo.getSelectedItem().toString();
-        Object selectEspecialidad = V.comboEspecialidad.getSelectedItem();
-        String especialidad = "";
-        if (selectEspecialidad != null) {
-            especialidad = cargo.equalsIgnoreCase("MEDICO") ? selectEspecialidad.toString() : "GENERAL";
-        }
+        
         String fecha = Procesos.Proceso.FECHA_ACTUAL();
         String codigoUsuario = ProcesoUsuario.generarCodigo(dniUsuario, cargo);
-        Usuario us = new Usuario(codigoUsuario, dniUsuario, nombres, apellidos, especialidad, cargo, password, fecha);
+        Usuario us = new Usuario(codigoUsuario, dniUsuario, nombres, apellidos, cargo, password, fecha);
         return us;
     }
 
@@ -68,8 +54,6 @@ public class ControladorNewUsuarios {
 
     private void consultar() {
         ProcesoUsuario.rellenarTablaRegistro(V.tabla);
-        V.comboEspecialidad.removeAllItems();
-        ProcesoUsuario.rellenarComboEspecialidad(V.comboEspecialidad);
     }
 
     private void limpiar() {

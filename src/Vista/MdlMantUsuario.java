@@ -42,9 +42,6 @@ public class MdlMantUsuario extends javax.swing.JPanel {
         pPassword = new javax.swing.JPanel();
         jlbPassword = new javax.swing.JLabel();
         txtPassword = new Componentes.TextFieldSuggestion();
-        pEspecialidad = new javax.swing.JPanel();
-        jlbApellidoMaterno = new javax.swing.JLabel();
-        comboEspecialidad = new Componentes.ComboBoxSuggestion();
         pFecha = new javax.swing.JPanel();
         jlbFecha = new javax.swing.JLabel();
         txtFecha = new Componentes.TextFieldSuggestion();
@@ -68,11 +65,11 @@ public class MdlMantUsuario extends javax.swing.JPanel {
 
             },
             new String [] {
-                "N", "ID", "DNI", "Nombres", "Apellidos", "Cargo", "Especialidad", "Fecha"
+                "N", "ID", "DNI", "Nombres", "Apellidos", "Cargo", "Fecha"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -318,41 +315,6 @@ public class MdlMantUsuario extends javax.swing.JPanel {
 
         panelDatos.add(pPassword);
 
-        pEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
-        pEspecialidad.setPreferredSize(new java.awt.Dimension(197, 100));
-
-        jlbApellidoMaterno.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jlbApellidoMaterno.setText("Especialidad");
-
-        comboEspecialidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboEspecialidadActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pEspecialidadLayout = new javax.swing.GroupLayout(pEspecialidad);
-        pEspecialidad.setLayout(pEspecialidadLayout);
-        pEspecialidadLayout.setHorizontalGroup(
-            pEspecialidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pEspecialidadLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(pEspecialidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboEspecialidad, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                    .addComponent(jlbApellidoMaterno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(14, 14, 14))
-        );
-        pEspecialidadLayout.setVerticalGroup(
-            pEspecialidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEspecialidadLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jlbApellidoMaterno, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comboEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        panelDatos.add(pEspecialidad);
-
         pFecha.setBackground(new java.awt.Color(255, 255, 255));
         pFecha.setPreferredSize(new java.awt.Dimension(197, 100));
 
@@ -486,12 +448,8 @@ public class MdlMantUsuario extends javax.swing.JPanel {
         limitacionNumeros(txtDni, evt, 8);
     }//GEN-LAST:event_txtDniKeyTyped
 
-    private void comboEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEspecialidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboEspecialidadActionPerformed
-
     private void comboCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCargoActionPerformed
-        C.carVisi();
+         
     }//GEN-LAST:event_comboCargoActionPerformed
 
     private void txtPasswordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyTyped
@@ -525,10 +483,8 @@ public class MdlMantUsuario extends javax.swing.JPanel {
     public Componentes.Button btnFiltrar;
     public Componentes.Button btnLimpiar;
     public Componentes.ComboBoxSuggestion comboCargo;
-    public Componentes.ComboBoxSuggestion comboEspecialidad;
     public com.raven.datechooser.DateChooser dateChooser;
     public javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JLabel jlbApellidoMaterno;
     public javax.swing.JLabel jlbApellidoPaterno;
     public javax.swing.JLabel jlbCargo;
     public javax.swing.JLabel jlbDni;
@@ -542,7 +498,6 @@ public class MdlMantUsuario extends javax.swing.JPanel {
     public javax.swing.JPanel pBotones;
     public javax.swing.JPanel pCargo;
     public javax.swing.JPanel pDni;
-    public javax.swing.JPanel pEspecialidad;
     public javax.swing.JPanel pFecha;
     public javax.swing.JPanel pNombres;
     public javax.swing.JPanel pPassword;

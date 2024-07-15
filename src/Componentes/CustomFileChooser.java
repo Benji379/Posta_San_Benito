@@ -9,7 +9,7 @@ public class CustomFileChooser {
             JnaFileChooser fileChooser = new JnaFileChooser();
             fileChooser.addFilter(titulo, extension);
             fileChooser.setMultiSelectionEnabled(false); // Cambia a true si deseas habilitar la selecci�n m�ltiple
-            fileChooser.setMode(JnaFileChooser.Mode.Files); // Cambia el modo seg�n tus necesidades
+//            fileChooser.setMode(JnaFileChooser.Mode.Files); // Cambia el modo seg�n tus necesidades
             // Establece el nombre de archivo por defecto
             if (defaultName != null && !defaultName.isEmpty()) {
                 fileChooser.setDefaultFileName(defaultName + "." + extension);

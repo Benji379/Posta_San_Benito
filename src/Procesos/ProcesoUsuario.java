@@ -26,7 +26,7 @@ public class ProcesoUsuario extends Proceso {
 
     public static boolean valido(Usuario u) {
         boolean validar = validoSinEspacios(
-                u.getDni(), u.getApellidos(), u.getCargo(), u.getCodigo(), u.getEspecialidad(),
+                u.getDni(), u.getApellidos(), u.getCargo(), u.getCodigo(),
                 u.getFecha(), u.getNombres(), u.getPassword()) && u.getDni().length() == 8;
         return validar;
     }
@@ -44,7 +44,6 @@ public class ProcesoUsuario extends Proceso {
                 us.getCodigo(),
                 us.getDni(),
                 us.getCargo(),
-                us.getEspecialidad(),
                 us.getFecha()
             });
         }
@@ -77,7 +76,6 @@ public class ProcesoUsuario extends Proceso {
                 us.getNombres(),
                 us.getApellidos(),
                 us.getCargo(),
-                us.getEspecialidad(),
                 us.getFecha()
             });
         }
