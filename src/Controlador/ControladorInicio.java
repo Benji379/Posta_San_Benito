@@ -1,6 +1,5 @@
 package Controlador;
 
-import Procesos.ProcesoInicio;
 import Procesos.ProcesoLogin;
 import Vista.MdlInicio;
 import javax.swing.ImageIcon;

@@ -32,7 +32,6 @@ public class MdlMantAtencion extends javax.swing.JPanel {
         jlbFecha = new javax.swing.JLabel();
         txtFecha = new Componentes.TextFieldSuggestion();
         btnFiltrarAtencionMedico = new Componentes.Button();
-        btnFiltrarAtencionMedico1 = new Componentes.Button();
         jPanel3 = new javax.swing.JPanel();
         jlbTittle3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -46,6 +45,10 @@ public class MdlMantAtencion extends javax.swing.JPanel {
         jlbFecha2 = new javax.swing.JLabel();
         txtFechaFinal = new Componentes.TextFieldSuggestion();
         btnFiltrarEspecialidad = new Componentes.Button();
+        jPanel5 = new javax.swing.JPanel();
+        btnLimpiar = new Componentes.Button();
+        btnEliminar = new Componentes.Button();
+        btnEditar = new Componentes.Button();
 
         dateChooser.setTextField(txtFecha);
         dateChooser.setDateFormat(new java.text.SimpleDateFormat("dd/MM/yyyy"));
@@ -159,17 +162,6 @@ public class MdlMantAtencion extends javax.swing.JPanel {
         });
         jPanel2.add(btnFiltrarAtencionMedico);
 
-        btnFiltrarAtencionMedico1.setText("Limpiar");
-        btnFiltrarAtencionMedico1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btnFiltrarAtencionMedico1.setPreferredSize(new java.awt.Dimension(120, 50));
-        btnFiltrarAtencionMedico1.setRippleColor(new java.awt.Color(153, 153, 153));
-        btnFiltrarAtencionMedico1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFiltrarAtencionMedico1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnFiltrarAtencionMedico1);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -177,7 +169,7 @@ public class MdlMantAtencion extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlbTittle2, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                    .addComponent(jlbTittle2, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -187,8 +179,8 @@ public class MdlMantAtencion extends javax.swing.JPanel {
                 .addGap(16, 16, 16)
                 .addComponent(jlbTittle2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jlbTittle3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -303,7 +295,7 @@ public class MdlMantAtencion extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlbTittle3, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                    .addComponent(jlbTittle3, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(16, 16, 16)))
@@ -312,12 +304,47 @@ public class MdlMantAtencion extends javax.swing.JPanel {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jlbTittle3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jPanel5.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 20));
+
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btnLimpiar.setPreferredSize(new java.awt.Dimension(120, 50));
+        btnLimpiar.setRippleColor(new java.awt.Color(153, 153, 153));
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnLimpiar);
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btnEliminar.setPreferredSize(new java.awt.Dimension(120, 50));
+        btnEliminar.setRippleColor(new java.awt.Color(153, 153, 153));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnEliminar);
+
+        btnEditar.setText("Editar");
+        btnEditar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btnEditar.setPreferredSize(new java.awt.Dimension(120, 50));
+        btnEditar.setRippleColor(new java.awt.Color(153, 153, 153));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnEditar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -327,11 +354,16 @@ public class MdlMantAtencion extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jlbTittle1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(scrollPane)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(20, 20, 20)
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20)))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -340,17 +372,18 @@ public class MdlMantAtencion extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addComponent(jlbTittle1)
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20)
-                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void tablaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaMouseClicked
-
+        C.clickTabla();
     }//GEN-LAST:event_tablaMouseClicked
 
     private void btnFiltrarAtencionMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarAtencionMedicoActionPerformed
@@ -361,15 +394,24 @@ public class MdlMantAtencion extends javax.swing.JPanel {
         C.filtrarEspecialidades();
     }//GEN-LAST:event_btnFiltrarEspecialidadActionPerformed
 
-    private void btnFiltrarAtencionMedico1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFiltrarAtencionMedico1ActionPerformed
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         C.limpiar();
-    }//GEN-LAST:event_btnFiltrarAtencionMedico1ActionPerformed
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        C.eliminar();
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        C.editar();
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public Componentes.Button btnEditar;
+    public Componentes.Button btnEliminar;
     public Componentes.Button btnFiltrarAtencionMedico;
-    public Componentes.Button btnFiltrarAtencionMedico1;
     public Componentes.Button btnFiltrarEspecialidad;
+    public Componentes.Button btnLimpiar;
     public Componentes.ComboBoxSuggestion comboEspecialidades;
     public Componentes.ComboBoxSuggestion comboMedico;
     public com.raven.datechooser.DateChooser dateChooser;
@@ -379,6 +421,7 @@ public class MdlMantAtencion extends javax.swing.JPanel {
     public javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel4;
+    public javax.swing.JPanel jPanel5;
     public javax.swing.JLabel jlbFecha;
     public javax.swing.JLabel jlbFecha1;
     public javax.swing.JLabel jlbFecha2;

@@ -25,7 +25,7 @@ public class ProcesoLogin {
         return false;
     }
 
-//ADMINISTRADOR, MEDICO, COORDINADOR
+    //ADMINISTRADOR, MEDICO, COORDINADOR
     public static void abrirFrmPrincipal(FrmPrincipal frm) {
         String cargo = USER.getCargo();
 

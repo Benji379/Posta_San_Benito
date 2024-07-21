@@ -1,7 +1,6 @@
 package Ordenamientos;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 public class AlgoritmosSort {
@@ -24,7 +23,7 @@ public class AlgoritmosSort {
                 }
             }
             // Intercambiar las filas
-            swapRows(model, i, minIndex);
+            swapRowsSeleccion(model, i, minIndex);
         }
     }
 
@@ -42,12 +41,12 @@ public class AlgoritmosSort {
             int j = i - 1;
             // Desplazar los elementos mayores hacia la derecha
             while (j >= 0 && ((Comparable) model.getValueAt(j, column)).compareTo(key) > 0) {
-                swapRows(model, j + 1, j);
+                swapRowsInsercion(model, j + 1, j);
                 j--;
             }
         }
     }
-
+    
     /**
      * Método de ordenamiento por Burbuja
      *
@@ -64,7 +63,7 @@ public class AlgoritmosSort {
                 // Comparar los valores adyacentes en la columna especificada
                 if (((Comparable) model.getValueAt(i - 1, column)).compareTo(model.getValueAt(i, column)) > 0) {
                     // Intercambiar las filas
-                    swapRows(model, i - 1, i);
+                    swapRowsBurbuja(model, i - 1, i);
                     swapped = true;
                 }
             }
@@ -87,7 +86,7 @@ public class AlgoritmosSort {
                 int j;
                 // Realizar inserción con intervalos
                 for (j = i; j >= gap && ((Comparable) model.getValueAt(j - gap, column)).compareTo(temp) > 0; j -= gap) {
-                    swapRows(model, j, j - gap);
+                    swapRowsShellSort(model, j, j - gap);
                 }
             }
         }
@@ -159,8 +158,24 @@ public class AlgoritmosSort {
         }
     }
 
-    // Método para intercambiar las filas en el modelo de la tabla
-    private static void swapRows(TableModel model, int row1, int row2) {
+    // Métodos para intercambiar las filas en el modelo de la tabla con nombres únicos
+    private static void swapRowsSeleccion(TableModel model, int row1, int row2) {
+        swapRowsHelper(model, row1, row2);
+    }
+
+    private static void swapRowsInsercion(TableModel model, int row1, int row2) {
+        swapRowsHelper(model, row1, row2);
+    }
+
+    private static void swapRowsBurbuja(TableModel model, int row1, int row2) {
+        swapRowsHelper(model, row1, row2);
+    }
+
+    private static void swapRowsShellSort(TableModel model, int row1, int row2) {
+        swapRowsHelper(model, row1, row2);
+    }
+
+    private static void swapRowsHelper(TableModel model, int row1, int row2) {
         int columnCount = model.getColumnCount();
         for (int i = 0; i < columnCount; i++) {
             Object temp = model.getValueAt(row1, i);
@@ -169,68 +184,42 @@ public class AlgoritmosSort {
         }
     }
 
-    // Ejemplo de uso de la clase AlgoritmosSort
-    public static void main(String[] args) {
-        // Crear un modelo de tabla con algunos datos de ejemplo
-        String[] columnNames = {"ID", "Nombre", "Edad"};
-        Object[][] data = {
-            {1, "Alice", 30},
-            {2, "Bob", 25},
-            {3, "Carol", 35},
-            {4, "David", 20}
-        };
-
-        // Crear el JTable con el modelo de tabla
-        JTable table = new JTable(new DefaultTableModel(data, columnNames));
-
-        // Imprimir la tabla antes del ordenamiento
-        System.out.println("Tabla antes del ordenamiento:");
-        printTable(table);
-
-        // Ordenar la tabla por la columna "Edad" usando el método de selección
-        seleccion(table, 2);
-
-        // Imprimir la tabla después del ordenamiento
-        System.out.println("\nTabla después del ordenamiento por selección (columna 'Edad'):");
-        printTable(table);
-
-        // Ordenar la tabla por la columna "Edad" usando el método de inserción
-        insercion(table, 2);
-
-        // Imprimir la tabla después del ordenamiento
-        System.out.println("\nTabla después del ordenamiento por inserción (columna 'Edad'):");
-        printTable(table);
-
-        // Ordenar la tabla por la columna "Edad" usando el método de burbuja
-        burbuja(table, 2);
-
-        // Imprimir la tabla después del ordenamiento
-        System.out.println("\nTabla después del ordenamiento por burbuja (columna 'Edad'):");
-        printTable(table);
-
-        // Ordenar la tabla por la columna "Edad" usando el método de shellSort
-        shellSort(table, 2);
-
-        // Imprimir la tabla después del ordenamiento
-        System.out.println("\nTabla después del ordenamiento por shellSort (columna 'Edad'):");
-        printTable(table);
-
-        // Ordenar la tabla por la columna "Edad" usando el método de mergeSort
-        mergeSort(table, 2);
-
-        // Imprimir la tabla después del ordenamiento
-        System.out.println("\nTabla después del ordenamiento por mergeSort (columna 'Edad'):");
-        printTable(table);
+    /**
+     * Método de ordenamiento QuickSort
+     *
+     * @param table La JTable a ordenar
+     * @param column El índice de la columna según la cual se ordenará la tabla
+     */
+    public static void quicksort(JTable table, int column) {
+        TableModel model = table.getModel();
+        quicksortRecursive(model, column, 0, model.getRowCount() - 1);
     }
 
-    // Método para imprimir el contenido de la JTable
-    private static void printTable(JTable table) {
-        TableModel model = table.getModel();
-        for (int i = 0; i < model.getRowCount(); i++) {
-            for (int j = 0; j < model.getColumnCount(); j++) {
-                System.out.print(model.getValueAt(i, j) + "\t");
-            }
-            System.out.println();
+    // Método recursivo para el QuickSort
+    private static void quicksortRecursive(TableModel model, int column, int low, int high) {
+        if (low < high) {
+            int pi = partition(model, column, low, high);
+            quicksortRecursive(model, column, low, pi - 1);
+            quicksortRecursive(model, column, pi + 1, high);
         }
     }
+
+    // Método para realizar la partición en el QuickSort
+    private static int partition(TableModel model, int column, int low, int high) {
+        Object pivot = model.getValueAt(high, column);
+        int i = (low - 1);
+        for (int j = low; j < high; j++) {
+            if (((Comparable) model.getValueAt(j, column)).compareTo(pivot) <= 0) {
+                i++;
+                swapRowsQuicksort(model, i, j);
+            }
+        }
+        swapRowsQuicksort(model, i + 1, high);
+        return i + 1;
+    }
+
+    private static void swapRowsQuicksort(TableModel model, int row1, int row2) {
+        swapRowsHelper(model, row1, row2);
+    }
+
 }

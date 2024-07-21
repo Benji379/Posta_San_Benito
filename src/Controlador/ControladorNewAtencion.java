@@ -14,12 +14,15 @@ public class ControladorNewAtencion {
 
     public ControladorNewAtencion(MdlNewAtencion V) {
         this.V = V;
+        V.btnEditar.setVisible(false);
     }
 
     public void init() {
         data = new DataAtencion();
         limpiar();
         initCombos();
+        V.txtAreaEnfermedadActual.setText("");
+        V.txtAreaMotivoConsulta.setText("");
     }
 
     public void registrar() {
@@ -35,10 +38,6 @@ public class ControladorNewAtencion {
         } else {
             Proceso.error("Campos sin completar");
         }
-
-    }
-
-    public void descargar() {
 
     }
 
@@ -68,7 +67,7 @@ public class ControladorNewAtencion {
         });
     }
 
-    private Atencion recogerDatos() {
+    public Atencion recogerDatos() {
         String idAtencion = ProcesoAtencion.idActual();
         String paciente = Proceso.evitarNull(V.comboPaciente.getSelectedItem());
         String especialidad = Proceso.evitarNull(V.comboEspecialidad.getSelectedItem());

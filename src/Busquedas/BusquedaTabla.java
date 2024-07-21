@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 public class BusquedaTabla {
-
+    
     public static DefaultTableModel filtro_BusquedaBinaria(HashMap<Integer, Object> filtros, DefaultTableModel modeloOriginal) {
         ArrayList<ArrayList<Object>> datos = extraerDatos(modeloOriginal);
         ArbolBinario arbol = new ArbolBinario();
@@ -30,7 +30,7 @@ public class BusquedaTabla {
         ArrayList<ArrayList<Object>> datosFiltrados = arbol.filtrar(filtros);  // Utiliza la misma función filtrar para búsqueda secuencial
         return crearModeloDesdeDatos(datosFiltrados, modeloOriginal);
     }
-
+    
     private static ArrayList<ArrayList<Object>> extraerDatos(DefaultTableModel modelo) {
         ArrayList<ArrayList<Object>> datos = new ArrayList<>();
         for (int i = 0; i < modelo.getRowCount(); i++) {

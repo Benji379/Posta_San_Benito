@@ -22,6 +22,7 @@ public class ProcesoEspecialidad extends Proceso {
             });
         }
     }
+    
     public static DefaultTableModel rellenarTablaMantenimiento(JTable tabla) {
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         modelo.setRowCount(0);

@@ -3,14 +3,13 @@ package Vista;
 import Controlador.ControladorNewAtencion;
 
 public class MdlNewAtencion extends javax.swing.JPanel {
-    
+
     private final ControladorNewAtencion C;
-    
+
     public MdlNewAtencion() {
         initComponents();
         C = new ControladorNewAtencion(this);
         C.init();
-                
     }
 
     @SuppressWarnings("unchecked")
@@ -51,6 +50,7 @@ public class MdlNewAtencion extends javax.swing.JPanel {
         jlbFecha = new javax.swing.JLabel();
         txtFecha = new javax.swing.JLabel();
         btnRegistrar = new Componentes.Button();
+        btnEditar = new Componentes.Button();
 
         jlbTittle.setFont(new java.awt.Font("Century Gothic", 1, 36)); // NOI18N
         jlbTittle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -351,6 +351,17 @@ public class MdlNewAtencion extends javax.swing.JPanel {
         });
         pBoleta.add(btnRegistrar);
 
+        btnEditar.setText("Editar");
+        btnEditar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btnEditar.setPreferredSize(new java.awt.Dimension(120, 50));
+        btnEditar.setRippleColor(new java.awt.Color(153, 153, 153));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        pBoleta.add(btnEditar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -384,8 +395,12 @@ public class MdlNewAtencion extends javax.swing.JPanel {
         C.registrar();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public Componentes.Button btnEditar;
     public Componentes.Button btnRegistrar;
     public Componentes.ComboBoxSuggestion comboEspecialidad;
     public Componentes.ComboBoxSuggestion comboMedico;
@@ -421,4 +436,7 @@ public class MdlNewAtencion extends javax.swing.JPanel {
     public javax.swing.JLabel txtPaciente;
     public javax.swing.JLabel txtPrecio;
     // End of variables declaration//GEN-END:variables
+//    public Modelo.Atencion getDatos() {
+//        return C.recogerDatos();
+//    }
 }

@@ -10,12 +10,17 @@ public class OrdenamientoTabla {
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
 
         Object[][] filaDatos = new Object[modelo.getRowCount()][modelo.getColumnCount()];
+
+        //EN DONDE YO PASO LOS DATOS RECOGIDOS DEL MODELO Y LOS PASO A LA MATRIZ filaDatos
         for (int i = 0; i < modelo.getRowCount(); i++) {
             for (int j = 0; j < modelo.getColumnCount(); j++) {
                 filaDatos[i][j] = modelo.getValueAt(i, j);
             }
         }
+
+        //LIMPIO LOS DATOS QUE  HAY EN LA TABLA PARA POSTERIORMENTE MOSTRAR LOS DATOS ORDENADOS
         modelo.setRowCount(0);
+
         Arrays.sort(filaDatos, (Object[] ob1, Object[] ob2) -> {
             Comparable<Object> colum1 = (Comparable<Object>) ob1[numColumna];
             Comparable<Object> colum2 = (Comparable<Object>) ob2[numColumna];

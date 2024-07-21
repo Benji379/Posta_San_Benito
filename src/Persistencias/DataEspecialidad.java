@@ -8,19 +8,19 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class DataEspecialidad {
-
+    
     private static final String FILE_PATH = "data/especialidades.bin";
     private final HashMap<String, Especialidad> MAPA_ESPECIALIDADES;
     private final LinkedList<Especialidad> LISTA_ESPECIALIDADES;
     private final PilaEspecialidad PILA_ESPECIALIDADES;
-
+        
     public DataEspecialidad() {
         this.MAPA_ESPECIALIDADES = new HashMap<>();
         this.LISTA_ESPECIALIDADES = new LinkedList<>();
         this.PILA_ESPECIALIDADES = new PilaEspecialidad();
         cargarDatos();
     }
-
+    
     private void cargarDatos() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_PATH))) {
             Especialidad especialidad;
@@ -35,7 +35,7 @@ public class DataEspecialidad {
             System.out.println("Error: " + e.getMessage());
         }
     }
-
+    
     private void guardarDatos() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_PATH))) {
             for (Especialidad especialidad : LISTA_ESPECIALIDADES) {
@@ -49,7 +49,7 @@ public class DataEspecialidad {
     public ArrayList<Especialidad> getData() {
         return new ArrayList<>(LISTA_ESPECIALIDADES);
     }
-
+    
     public void registrar(Especialidad especialidad) {
         if (!MAPA_ESPECIALIDADES.containsKey(especialidad.getEspecialidad())) {
             MAPA_ESPECIALIDADES.put(especialidad.getEspecialidad(), especialidad);
@@ -96,7 +96,7 @@ public class DataEspecialidad {
             }
         }
     }
-
+    
     public boolean existeEspecialidad (String especialidad) {
         return MAPA_ESPECIALIDADES.containsKey(especialidad);
     }

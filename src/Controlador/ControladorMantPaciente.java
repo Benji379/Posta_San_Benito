@@ -147,6 +147,9 @@ public class ControladorMantPaciente {
             case 5:
                 Ordenamientos.AlgoritmosSort.shellSort(V.tabla, co);
                 break;
+            case 6://QUICK SORT
+                Ordenamientos.AlgoritmosSort.quicksort(V.tabla, co);
+                break;
             default:
                 Ordenamientos.OrdenamientoTabla.ordenarTabla(V.tabla, co, true);
                 break;

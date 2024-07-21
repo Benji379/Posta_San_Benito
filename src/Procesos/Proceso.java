@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.AbstractButton;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -27,12 +26,6 @@ public class Proceso {
         contenedor.add(panel, BorderLayout.CENTER);
         contenedor.revalidate();
         contenedor.repaint();
-    }
-
-    public static void ejecutar(AbstractButton componente, Accion accion) {
-        componente.addActionListener((java.awt.event.ActionEvent evt) -> {
-            accion.ejecutar();
-        });
     }
 
     public static String FECHA_ACTUAL() {

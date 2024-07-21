@@ -28,9 +28,8 @@ public class ControladorLogin {
         }
     }
     
-    
-    
     private int i = 0;
+    
     public void clickOjo() {
         i++;
         if (i % 2 == 0) {

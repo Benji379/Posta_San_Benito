@@ -158,17 +158,17 @@ public class MdlNewUsuarios extends javax.swing.JPanel {
         pDown.setLayout(pDownLayout);
         pDownLayout.setHorizontalGroup(
             pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pDownLayout.createSequentialGroup()
-                .addGap(202, 202, 202)
-                .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDownLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(14, 14, 14))
         );
         pDownLayout.setVerticalGroup(
             pDownLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDownLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addGap(24, 24, 24)
+                .addComponent(btnRegistrar, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                .addGap(23, 23, 23))
         );
 
         pCargo.setBackground(new java.awt.Color(255, 255, 255));

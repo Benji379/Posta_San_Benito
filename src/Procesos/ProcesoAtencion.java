@@ -8,11 +8,11 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class ProcesoAtencion {
-
+    
     public static void rellenarCombo(JComboBox comboPacientes, JComboBox comboEspecialidades) {
         ArrayList<Paciente> listaPacientes = new DataPaciente().getData();
         ArrayList<Especialidad> listaEspecialidades = new DataEspecialidad().getData();
-
+        
         //rellenarComboPacientes
         comboPacientes.removeAllItems();
         for (Paciente pa : listaPacientes) {
@@ -51,8 +51,12 @@ public class ProcesoAtencion {
     public static String idActual() {
         int idActual = 0;
         try {
-            idActual = new DataAtencion().getData().size();
-        } catch (Exception e) {
+            DataAtencion dataAtencion = new DataAtencion();
+            int size = dataAtencion.getData().size();
+            if (size > 0) {
+                idActual = Integer.parseInt(dataAtencion.getData().get(size - 1).getIdAtencion());
+            }
+        } catch (NumberFormatException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
@@ -95,5 +99,4 @@ public class ProcesoAtencion {
         }
         return modelo;
     }
-
 }

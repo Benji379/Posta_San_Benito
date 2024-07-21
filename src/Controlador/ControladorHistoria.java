@@ -33,20 +33,25 @@ public class ControladorHistoria {
     }
 
     public void descargarHistoriaPdf() {
-        String dniCliente = V.comboPaciente.getSelectedItem().toString();
-        ArrayList<HistoriaPdf> historia = parseHistoriaPdf(atencionesCliente(dniCliente));
-        int cantidadHistoria = historia.size();
-        if (cantidadHistoria > 0) {
-            String nombre = "HISTORIA CLINICA_" + dniCliente;
+        int cantidadItems = V.comboPaciente.getItemCount();
+        if (cantidadItems > 0) {
+            String dniCliente = V.comboPaciente.getSelectedItem().toString();
+            ArrayList<HistoriaPdf> historia = parseHistoriaPdf(atencionesCliente(dniCliente));
+            int cantidadHistoria = historia.size();
+            if (cantidadHistoria > 0) {
+                String nombre = "HISTORIA CLINICA_" + dniCliente;
 //            java.awt.Window parentWindow = javax.swing.SwingUtilities.windowForComponent(V);
-            String direccionDescarga = Componentes.CustomFileChooser.chooseFile(null, nombre, "pdf", "Archivos pdf");
-            if (direccionDescarga != null) {
-                generarPdf(historia, direccionDescarga);
-                Proceso.mensaje(nombre + ".pdf" + " a sido descargado","icono.png");
-                Proceso.abrirArchivo(direccionDescarga);
+                String direccionDescarga = Componentes.CustomFileChooser.chooseFile(null, nombre, "pdf", "Archivos pdf");
+                if (direccionDescarga != null) {
+                    generarPdf(historia, direccionDescarga);
+                    Proceso.mensaje(nombre + ".pdf" + " a sido descargado", "icono.png");
+                    Proceso.abrirArchivo(direccionDescarga);
+                }
+            } else {
+                Proceso.error("El paciente aún no a sido antendido");
             }
-        } else {
-            Proceso.error("El paciente aún no a sido antendido");
+        }else{
+            Proceso.error("No hay pacientes registrados");
         }
     }
 

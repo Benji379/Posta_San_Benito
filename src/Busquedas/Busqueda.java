@@ -4,7 +4,8 @@ import Modelo.Paciente;
 import java.util.List;
 
 public class Busqueda {
-
+    
+    //BENJAMIN - JUAN- LUIS
     public static Paciente busquedaBinariaPaciente(List<Paciente> lista, String dniPaciente, int bajo, int alto) {
         if (alto >= bajo) {
             int medio = bajo + (alto - bajo) / 2;
