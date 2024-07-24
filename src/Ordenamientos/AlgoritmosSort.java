@@ -37,16 +37,16 @@ public class AlgoritmosSort {
         TableModel model = table.getModel();
         int rowCount = model.getRowCount();
         for (int i = 1; i < rowCount; i++) {
-            Object key = model.getValueAt(i, column);
-            int j = i - 1;
+            int j = i;
             // Desplazar los elementos mayores hacia la derecha
-            while (j >= 0 && ((Comparable) model.getValueAt(j, column)).compareTo(key) > 0) {
-                swapRowsInsercion(model, j + 1, j);
+            while (j > 0 && ((Comparable) model.getValueAt(j - 1, column)).compareTo(model.getValueAt(j, column)) > 0) {
+                // Intercambiar las filas
+                swapRowsInsercion(model, j - 1, j);
                 j--;
             }
         }
     }
-    
+
     /**
      * Método de ordenamiento por Burbuja
      *
@@ -82,11 +82,11 @@ public class AlgoritmosSort {
         // Inicializar el tamaño del intervalo
         for (int gap = rowCount / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < rowCount; i++) {
-                Object temp = model.getValueAt(i, column);
-                int j;
+                int j = i;
                 // Realizar inserción con intervalos
-                for (j = i; j >= gap && ((Comparable) model.getValueAt(j - gap, column)).compareTo(temp) > 0; j -= gap) {
+                while (j >= gap && ((Comparable) model.getValueAt(j - gap, column)).compareTo(model.getValueAt(j, column)) > 0) {
                     swapRowsShellSort(model, j, j - gap);
+                    j -= gap;
                 }
             }
         }
@@ -118,26 +118,33 @@ public class AlgoritmosSort {
         int leftSize = mid - left + 1;
         int rightSize = right - mid;
 
-        Object[] leftArray = new Object[leftSize];
-        Object[] rightArray = new Object[rightSize];
+        Object[][] leftArray = new Object[leftSize][model.getColumnCount()];
+        Object[][] rightArray = new Object[rightSize][model.getColumnCount()];
 
         // Copiar datos a los arreglos temporales
         for (int i = 0; i < leftSize; ++i) {
-            leftArray[i] = model.getValueAt(left + i, column);
+            for (int j = 0; j < model.getColumnCount(); j++) {
+                leftArray[i][j] = model.getValueAt(left + i, j);
+            }
         }
-        for (int j = 0; j < rightSize; ++j) {
-            rightArray[j] = model.getValueAt(mid + 1 + j, column);
+        for (int i = 0; i < rightSize; ++i) {
+            for (int j = 0; j < model.getColumnCount(); j++) {
+                rightArray[i][j] = model.getValueAt(mid + 1 + i, j);
+            }
         }
 
         int i = 0, j = 0;
         int k = left;
         while (i < leftSize && j < rightSize) {
-            // Fusionar los arreglos temporales en el arreglo original
-            if (((Comparable) leftArray[i]).compareTo(rightArray[j]) <= 0) {
-                model.setValueAt(leftArray[i], k, column);
+            if (((Comparable) leftArray[i][column]).compareTo(rightArray[j][column]) <= 0) {
+                for (int l = 0; l < model.getColumnCount(); l++) {
+                    model.setValueAt(leftArray[i][l], k, l);
+                }
                 i++;
             } else {
-                model.setValueAt(rightArray[j], k, column);
+                for (int l = 0; l < model.getColumnCount(); l++) {
+                    model.setValueAt(rightArray[j][l], k, l);
+                }
                 j++;
             }
             k++;
@@ -145,14 +152,18 @@ public class AlgoritmosSort {
 
         // Copiar los elementos restantes de leftArray
         while (i < leftSize) {
-            model.setValueAt(leftArray[i], k, column);
+            for (int l = 0; l < model.getColumnCount(); l++) {
+                model.setValueAt(leftArray[i][l], k, l);
+            }
             i++;
             k++;
         }
 
         // Copiar los elementos restantes de rightArray
         while (j < rightSize) {
-            model.setValueAt(rightArray[j], k, column);
+            for (int l = 0; l < model.getColumnCount(); l++) {
+                model.setValueAt(rightArray[j][l], k, l);
+            }
             j++;
             k++;
         }
@@ -221,5 +232,4 @@ public class AlgoritmosSort {
     private static void swapRowsQuicksort(TableModel model, int row1, int row2) {
         swapRowsHelper(model, row1, row2);
     }
-
 }
